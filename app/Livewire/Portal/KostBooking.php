@@ -30,6 +30,15 @@ class KostBooking extends Component
             ?? Kamar::where('status', 'kosong')->first();
 
         $this->kamarId = $first?->id;
+
+        // Returning from sign-in: restore the choices made before the login gate.
+        if (Auth::guard('pelanggan')->check() && $pending = session()->pull('portal.pending_booking.kost')) {
+            $this->kamarId = $pending['kamarId'];
+            $this->dateOffset = $pending['dateOffset'];
+            $this->durasiBulan = $pending['durasiBulan'];
+            $this->catatan = $pending['catatan'];
+            $this->step = 3;
+        }
     }
 
     public function getKamarsProperty()
@@ -89,6 +98,20 @@ class KostBooking extends Component
     public function submit(): void
     {
         $pelanggan = Auth::guard('pelanggan')->user();
+
+        if (! $pelanggan) {
+            session()->put('portal.pending_booking.kost', [
+                'kamarId' => $this->kamarId,
+                'dateOffset' => $this->dateOffset,
+                'durasiBulan' => $this->durasiBulan,
+                'catatan' => $this->catatan,
+            ]);
+            session()->put('url.intended', route('portal.kost.book'));
+
+            $this->redirectRoute('portal.login', navigate: true);
+
+            return;
+        }
         $kamar = $this->kamar;
 
         if (! $kamar || $kamar->status !== 'kosong') {

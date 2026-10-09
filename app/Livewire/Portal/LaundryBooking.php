@@ -25,6 +25,15 @@ class LaundryBooking extends Component
     public function mount(): void
     {
         $this->layananId = Layanan::where('aktif', true)->orderBy('harga')->first()?->id;
+
+        // Returning from sign-in: restore the choices made before the login gate.
+        if (Auth::guard('pelanggan')->check() && $pending = session()->pull('portal.pending_booking.laundry')) {
+            $this->layananId = $pending['layananId'];
+            $this->jumlah = $pending['jumlah'];
+            $this->slotIdx = $pending['slotIdx'];
+            $this->catatan = $pending['catatan'];
+            $this->step = 3;
+        }
     }
 
     public function getLayanansProperty()
@@ -84,6 +93,20 @@ class LaundryBooking extends Component
     public function submit(): void
     {
         $pelanggan = Auth::guard('pelanggan')->user();
+
+        if (! $pelanggan) {
+            session()->put('portal.pending_booking.laundry', [
+                'layananId' => $this->layananId,
+                'jumlah' => $this->jumlah,
+                'slotIdx' => $this->slotIdx,
+                'catatan' => $this->catatan,
+            ]);
+            session()->put('url.intended', route('portal.laundry.book'));
+
+            $this->redirectRoute('portal.login', navigate: true);
+
+            return;
+        }
 
         $order = Order::create([
             'pelanggan_id' => $pelanggan->id,

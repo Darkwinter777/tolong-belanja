@@ -10,16 +10,22 @@
                 </div>
                 <div>
                     <p class="text-xs text-white/70">Halo,</p>
-                    <h1 class="text-[16px] font-extrabold leading-tight text-white">{{ $this->pelanggan->nama }}</h1>
+                    <h1 class="text-[16px] font-extrabold leading-tight text-white">{{ $this->pelanggan?->nama ?? 'Selamat datang' }}</h1>
                 </div>
             </div>
 
-            <a href="{{ route('portal.notifikasi') }}" wire:navigate class="relative flex h-11 w-11 shrink-0 basis-11 items-center justify-center rounded-full" style="background: rgba(255,255,255,.1);">
-                @svg('heroicon-o-bell', 'h-5 w-5 text-white')
-                @if ($this->pelanggan->unreadNotifications()->count() > 0)
-                    <span class="absolute right-2.5 top-2.5 h-2 w-2 rounded-full bg-amber-from ring-2 ring-navy"></span>
-                @endif
-            </a>
+            @if ($this->pelanggan)
+                <a href="{{ route('portal.notifikasi') }}" wire:navigate class="relative flex h-11 w-11 shrink-0 basis-11 items-center justify-center rounded-full" style="background: rgba(255,255,255,.1);">
+                    @svg('heroicon-o-bell', 'h-5 w-5 text-white')
+                    @if ($this->pelanggan->unreadNotifications()->count() > 0)
+                        <span class="absolute right-2.5 top-2.5 h-2 w-2 rounded-full bg-amber-from ring-2 ring-navy"></span>
+                    @endif
+                </a>
+            @else
+                <a href="{{ route('portal.login') }}" wire:navigate class="shrink-0 rounded-full px-5 py-2.5 text-xs font-extrabold text-white" style="background: rgba(255,255,255,.18);">
+                    Masuk
+                </a>
+            @endif
         </div>
 
         <p class="relative mt-6 text-wrap-pretty text-[22px] font-extrabold leading-tight tracking-[-0.03em] text-white">

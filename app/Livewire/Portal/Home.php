@@ -27,6 +27,10 @@ class Home extends Component
 
     public function getCurrentOrderProperty()
     {
+        if (! $this->pelanggan) {
+            return null;
+        }
+
         $order = $this->pelanggan->orders()
             ->with('layanan')
             ->whereIn('status', ['diterima', 'proses'])

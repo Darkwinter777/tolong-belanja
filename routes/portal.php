@@ -15,18 +15,21 @@ use App\Livewire\Portal\Profile;
 use App\Livewire\Portal\Register;
 use Illuminate\Support\Facades\Route;
 
+// Public: browse the home page and start a booking without signing in.
+// Sign-in is only required when the booking is confirmed (see KostBooking/LaundryBooking::submit).
+Route::get('/portal', Home::class)->name('portal.home');
+Route::get('/portal/kost/booking', KostBooking::class)->name('portal.kost.book');
+Route::get('/portal/laundry/booking', LaundryBooking::class)->name('portal.laundry.book');
+
 Route::middleware('guest:pelanggan')->group(function () {
     Route::get('/portal/login', Login::class)->name('portal.login');
     Route::get('/portal/register', Register::class)->name('portal.register');
 });
 
 Route::middleware('auth:pelanggan')->group(function () {
-    Route::get('/portal', Home::class)->name('portal.home');
     Route::get('/portal/pesanan', Pesanan::class)->name('portal.pesanan');
     Route::get('/portal/kost', Kost::class)->name('portal.kost');
-    Route::get('/portal/kost/booking', KostBooking::class)->name('portal.kost.book');
     Route::get('/portal/laundry', Laundry::class)->name('portal.laundry');
-    Route::get('/portal/laundry/booking', LaundryBooking::class)->name('portal.laundry.book');
     Route::get('/portal/laundry/{order}', LaundryDetail::class)->name('portal.laundry.detail');
     Route::get('/portal/notifikasi', Notifikasi::class)->name('portal.notifikasi');
     Route::get('/portal/pembayaran', Pembayaran::class)->name('portal.pembayaran');

@@ -80,7 +80,7 @@ class Login extends Component
         Auth::guard('pelanggan')->login($pelanggan, $this->remember);
         request()->session()->regenerate();
 
-        $this->redirectRoute('portal.home', navigate: true);
+        $this->redirect(session()->pull('url.intended', route('portal.home')), navigate: true);
     }
 
     public function comingSoon(): void
