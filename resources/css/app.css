@@ -1,0 +1,90 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Plus Jakarta Sans', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+        'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+    /* Tolong Belanja design tokens */
+    --color-brand: #00a88e;
+    --color-brand-hover: #009079;
+    --color-brand-deep: #00806c;
+    --color-brand-darkest: #00655a;
+    --color-brand-gradient-end: #006f5f;
+    --color-brand-mid: #00947c;
+
+    --color-navy: #0b2540;
+    --color-navy-hover: #0f3055;
+
+    --color-ink: #0f1b1a;
+    --color-text-secondary: #4a5b5a;
+    --color-text-muted: #6b7b7a;
+    --color-text-faint: #9aa9a8;
+
+    --color-divider: #eef2f1;
+    --color-divider-soft: #f2f6f5;
+    --color-border: #e2eaee;
+    --color-border-soft: #e6ecea;
+
+    --color-surface: #ffffff;
+    --color-bg: #f4f7f7;
+    --color-field: #f2f6f5;
+
+    --color-amber-from: #ffc043;
+    --color-amber-to: #ff8a00;
+    --color-amber: #ffab00;
+    --color-amber-text: #e09400;
+    --color-amber-text-deep: #b57500;
+    --color-amber-fill: #fff3d6;
+
+    --color-laundry: #ff4d6d;
+    --color-laundry-deep: #e6224a;
+    --color-laundry-fill: #ffeef1;
+    --color-laundry-border: #ffd9dd;
+    --color-laundry-bg: #fff5f6;
+
+    --color-success-text: #0a7d5f;
+    --color-success-fill: #dff5ec;
+
+    --color-photo-kost-fg: #dde5e4;
+    --color-photo-kost-bg: #93a5a3;
+    --color-photo-laundry-fg: #f3dde2;
+    --color-photo-laundry-bg: #c399a4;
+    --color-photo-cafe-fg: #f5e5c8;
+    --color-photo-cafe-bg: #c3a97a;
+}
+
+@layer utilities {
+    @keyframes tbFade {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes tbPulse {
+        0%,
+        100% {
+            opacity: 0.35;
+        }
+        50% {
+            opacity: 0.9;
+        }
+    }
+
+    .animate-tb-fade {
+        animation: tbFade 0.4s ease both;
+    }
+
+    .animate-tb-pulse {
+        animation: tbPulse 1.8s infinite;
+    }
+}

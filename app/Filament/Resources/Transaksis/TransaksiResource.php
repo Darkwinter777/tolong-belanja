@@ -1,0 +1,53 @@
+<?php
+
+namespace App\Filament\Resources\Transaksis;
+
+use App\Filament\Resources\Concerns\RestrictsToLaundryModule;
+use App\Filament\Resources\Transaksis\Pages\CreateTransaksi;
+use App\Filament\Resources\Transaksis\Pages\EditTransaksi;
+use App\Filament\Resources\Transaksis\Pages\ListTransaksis;
+use App\Filament\Resources\Transaksis\Schemas\TransaksiForm;
+use App\Filament\Resources\Transaksis\Tables\TransaksisTable;
+use BackedEnum;
+use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
+use Filament\Support\Icons\Heroicon;
+use Filament\Tables\Table;
+use Modules\Laundry\Models\Transaksi;
+
+class TransaksiResource extends Resource
+{
+    use RestrictsToLaundryModule;
+
+    protected static ?string $model = Transaksi::class;
+
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+
+    protected static string|\UnitEnum|null $navigationGroup = 'Laundry';
+
+    public static function form(Schema $schema): Schema
+    {
+        return TransaksiForm::configure($schema);
+    }
+
+    public static function table(Table $table): Table
+    {
+        return TransaksisTable::configure($table);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            //
+        ];
+    }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => ListTransaksis::route('/'),
+            'create' => CreateTransaksi::route('/create'),
+            'edit' => EditTransaksi::route('/{record}/edit'),
+        ];
+    }
+}

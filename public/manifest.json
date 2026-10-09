@@ -1,0 +1,16 @@
+{
+    "name": "Tolong Belanja",
+    "short_name": "TolongBelanja",
+    "background_color": "#0B2540",
+    "display": "standalone",
+    "description": "Aplikasi manajemen bisnis Kost & Laundry.",
+    "theme_color": "#00A88E",
+    "start_url": "/portal",
+    "icons": [
+        {
+            "src": "logo.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

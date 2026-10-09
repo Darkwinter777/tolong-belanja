@@ -1,0 +1,11 @@
+{
+    "name": "Laundry",
+    "alias": "laundry",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Laundry\\Providers\\LaundryServiceProvider"
+    ],
+    "files": []
+}

@@ -1,0 +1,16 @@
+{
+    "name": "Tolong Belanja Admin",
+    "short_name": "TB Admin",
+    "background_color": "#0f172a",
+    "display": "standalone",
+    "description": "Panel admin Tolong Belanja — Kost & Laundry.",
+    "theme_color": "#0d9488",
+    "start_url": "/admin",
+    "icons": [
+        {
+            "src": "logo-admin.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

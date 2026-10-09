@@ -1,0 +1,128 @@
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
+
+@source '../../../../app/Filament/**/*';
+@source '../../../../resources/views/filament/**/*';
+
+@theme {
+    --font-sans: 'Plus Jakarta Sans', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+        'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --color-tb-navy: #0b2540;
+    --color-tb-navy-soft: #12335a;
+    --color-tb-brand: #00a88e;
+}
+
+/* Safe-area padding so content clears the notch/status bar when installed as a PWA */
+.fi-topbar-ctn {
+    padding-top: env(safe-area-inset-top);
+}
+
+/* Brand the topbar + sidebar navy, teal accents — ties the admin visually to the customer portal */
+.fi-topbar {
+    @apply bg-tb-navy shadow-none ring-0 dark:bg-tb-navy;
+}
+
+.fi-topbar-item-btn {
+    @apply hover:bg-white/10 focus-visible:bg-white/10 dark:hover:bg-white/10 dark:focus-visible:bg-white/10;
+
+    & > .fi-icon {
+        @apply text-white/70;
+    }
+}
+
+.fi-topbar-item-label {
+    @apply text-white;
+}
+
+.fi-topbar .fi-logo,
+.fi-topbar .fi-icon-btn .fi-icon {
+    @apply text-white;
+}
+
+.fi-sidebar {
+    @apply bg-tb-navy lg:bg-tb-navy dark:bg-tb-navy dark:lg:bg-tb-navy;
+}
+
+.fi-sidebar-header {
+    @apply bg-tb-navy ring-0 dark:bg-tb-navy;
+}
+
+.fi-sidebar-group-label {
+    @apply text-white/40 dark:text-white/40;
+}
+
+.fi-sidebar-group-btn .fi-icon,
+.fi-sidebar-item-btn > .fi-icon {
+    @apply text-white/50 dark:text-white/50;
+}
+
+.fi-sidebar-item-label {
+    @apply text-white/80 dark:text-white/80;
+}
+
+.fi-sidebar-item.fi-sidebar-item-has-url .fi-sidebar-item-btn {
+    @apply hover:bg-white/10 focus-visible:bg-white/10 dark:hover:bg-white/10 dark:focus-visible:bg-white/10;
+}
+
+.fi-sidebar-item.fi-active > .fi-sidebar-item-btn {
+    @apply bg-tb-brand/15 dark:bg-tb-brand/20;
+
+    & > .fi-icon {
+        @apply text-tb-brand dark:text-tb-brand;
+    }
+
+    & > .fi-sidebar-item-label {
+        @apply text-white dark:text-white;
+    }
+}
+
+.fi-sidebar-close-overlay {
+    @apply bg-tb-navy/60 dark:bg-tb-navy/80;
+}
+
+/* Softer, more app-like cards for sections, widgets and tables */
+.fi-section:not(.fi-aside) {
+    @apply rounded-2xl shadow-sm;
+}
+
+.fi-section.fi-aside > .fi-section-content-ctn {
+    @apply rounded-2xl;
+}
+
+.fi-wi-stats-overview-widget-stat {
+    @apply rounded-2xl;
+}
+
+.fi-ta-ctn {
+    @apply rounded-2xl;
+}
+
+/* Comfortable touch targets on mobile */
+@media (max-width: 1023.98px) {
+    .fi-sidebar-item-btn,
+    .fi-sidebar-group-btn,
+    .fi-sidebar-group-dropdown-trigger-btn {
+        @apply py-2.5;
+    }
+}
+
+/* Branded, mobile-friendly login/auth page (fi-simple-* is the layout used by Login/Register/Password Reset) */
+.fi-simple-layout {
+    @apply bg-tb-navy dark:bg-tb-navy;
+}
+
+.fi-simple-main-ctn {
+    @apply px-4;
+}
+
+.fi-simple-main {
+    @apply my-8 rounded-3xl px-6 py-10 sm:my-16 sm:px-12;
+}
+
+.fi-logo {
+    @apply mx-auto;
+}
+
+.fi-simple-layout .fi-simple-main-ctn .fi-logo img {
+    @apply mx-auto;
+}
