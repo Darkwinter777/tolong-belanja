@@ -1,5 +1,5 @@
 <div>
-    <div class="sticky top-0 z-20 border-b border-divider bg-white px-[22px] pb-4 pt-[62px]">
+    <div class="sticky top-0 z-20 border-b border-divider bg-white px-[22px] pb-4 pt-[62px] lg:pt-5">
         <div class="flex items-center gap-3">
             @if ($step === 1)
                 <a href="{{ route('portal.home') }}" wire:navigate class="flex h-10 w-10 shrink-0 basis-10 items-center justify-center rounded-[13px] bg-field text-ink">
@@ -107,7 +107,7 @@
         @endif
     </div>
 
-    <div class="fixed bottom-0 left-1/2 z-30 w-full max-w-md -translate-x-1/2 px-4 pb-[max(1rem,env(safe-area-inset-bottom))]" style="background: linear-gradient(180deg, transparent, rgba(244,247,247,.96) 32%);">
+    <div class="fixed bottom-0 left-1/2 z-30 w-full max-w-md -translate-x-1/2 lg:max-w-xl px-4 pb-[max(1rem,env(safe-area-inset-bottom))]" style="background: linear-gradient(180deg, transparent, rgba(244,247,247,.96) 32%);">
         <div class="flex items-center justify-between rounded-[22px] bg-white p-3 pl-4 shadow-lg ring-1 ring-black/5">
             <div>
                 <p class="text-[11px] text-text-faint">{{ $step === 3 ? 'Total' : 'Estimasi' }}</p>

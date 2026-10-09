@@ -7,7 +7,7 @@ use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Modules\Laundry\Models\Order;
 
-#[Layout('portal.layouts.app', ['showNav' => false])]
+#[Layout('portal.layouts.app', ['showNav' => false, 'narrow' => true])]
 class LaundryDetail extends Component
 {
     public Order $order;

@@ -1,7 +1,7 @@
 <div>
     <x-portal.flow-header title="Kost Saya" subtitle="Kontrak sewa & tagihan Anda" :back="route('portal.home')" />
 
-    <div class="space-y-4 px-4 py-4">
+    <div class="space-y-4 px-4 py-4 lg:grid lg:grid-cols-2 lg:items-start lg:gap-4 lg:space-y-0 lg:px-8">
         @forelse ($this->kontrakSewas as $kontrak)
             <div class="rounded-[22px] bg-white p-4 shadow-sm ring-1 ring-black/5">
                 <div class="flex items-start justify-between">
@@ -50,7 +50,7 @@
                 @endif
             </div>
         @empty
-            <div class="flex flex-col items-center gap-3 rounded-[22px] bg-white p-10 text-center shadow-sm ring-1 ring-black/5">
+            <div class="flex flex-col items-center gap-3 rounded-[22px] bg-white p-10 lg:col-span-2 text-center shadow-sm ring-1 ring-black/5">
                 <span class="flex h-14 w-14 shrink-0 basis-14 items-center justify-center rounded-full bg-[#EAF6F3] text-brand-deep">
                     @svg('heroicon-o-home-modern', 'h-7 w-7')
                 </span>

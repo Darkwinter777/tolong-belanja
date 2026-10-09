@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
-#[Layout('portal.layouts.app', ['showNav' => false])]
+#[Layout('portal.layouts.app', ['showNav' => false, 'narrow' => true])]
 class Notifikasi extends Component
 {
     public function getNotificationsProperty()

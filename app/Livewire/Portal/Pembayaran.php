@@ -9,7 +9,7 @@ use Livewire\Component;
 use Modules\Kost\Models\Pembayaran as KostPembayaran;
 use Modules\Laundry\Models\Transaksi;
 
-#[Layout('portal.layouts.app', ['showNav' => false])]
+#[Layout('portal.layouts.app', ['showNav' => false, 'narrow' => true])]
 class Pembayaran extends Component
 {
     public string $metode = 'BCA Virtual Account';

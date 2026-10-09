@@ -1,10 +1,10 @@
 <div>
-    <div class="rounded-b-[30px] px-[22px] pb-[62px] pt-[62px] text-white" style="background: linear-gradient(160deg, #00A88E, #006F5F);">
+    <div class="rounded-b-[30px] px-[22px] pb-[62px] pt-[62px] text-white lg:px-10 lg:pt-10" style="background: linear-gradient(160deg, #00A88E, #006F5F);">
         <h1 class="text-[23px] font-extrabold text-white">Langganan Saya</h1>
         <p class="mt-1 text-sm text-white/85">Semua aktivitas Anda</p>
     </div>
 
-    <div class="-mt-9 px-[16px]">
+    <div class="-mt-9 px-[16px] lg:px-8">
         @if ($this->activeLangganan)
             <a href="{{ route('portal.kost') }}" wire:navigate class="block rounded-[22px] bg-white p-4 shadow-md shadow-navy/10 ring-1 ring-black/5 transition active:scale-[0.98]">
                 <div class="flex items-center gap-3">
@@ -38,7 +38,7 @@
         @endif
     </div>
 
-    <div class="space-y-3 px-[16px] pt-4">
+    <div class="space-y-3 px-[16px] pt-4 lg:grid lg:grid-cols-2 lg:gap-4 lg:space-y-0 lg:px-8 lg:pb-6">
         @forelse ($this->items as $item)
             <a href="{{ $item['url'] }}" wire:navigate class="flex items-center gap-3 rounded-[22px] bg-white p-4 shadow-sm ring-1 ring-black/5 transition active:scale-[0.98]">
                 <span @class([
@@ -75,7 +75,7 @@
                 </span>
             </a>
         @empty
-            <div class="flex flex-col items-center gap-3 rounded-[22px] bg-white p-10 text-center shadow-sm ring-1 ring-black/5">
+            <div class="flex flex-col items-center gap-3 rounded-[22px] bg-white p-10 text-center lg:col-span-2 shadow-sm ring-1 ring-black/5">
                 <span class="flex h-14 w-14 shrink-0 basis-14 items-center justify-center rounded-full bg-field text-text-faint">
                     @svg('heroicon-o-clipboard-document-list', 'h-7 w-7')
                 </span>

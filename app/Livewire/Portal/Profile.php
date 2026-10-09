@@ -8,7 +8,7 @@ use Illuminate\Validation\Rule;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
-#[Layout('portal.layouts.app')]
+#[Layout('portal.layouts.app', ['narrow' => true])]
 class Profile extends Component
 {
     public string $nama = '';

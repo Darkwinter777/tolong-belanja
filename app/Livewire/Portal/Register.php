@@ -9,7 +9,7 @@ use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Modules\Core\Models\Pelanggan;
 
-#[Layout('portal.layouts.app')]
+#[Layout('portal.layouts.app', ['narrow' => true])]
 class Register extends Component
 {
     public string $nama = '';

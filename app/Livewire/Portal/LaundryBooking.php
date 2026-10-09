@@ -9,7 +9,7 @@ use Modules\Laundry\Models\Layanan;
 use Modules\Laundry\Models\Order;
 use Modules\Laundry\Models\Transaksi;
 
-#[Layout('portal.layouts.app', ['showNav' => false])]
+#[Layout('portal.layouts.app', ['showNav' => false, 'narrow' => true])]
 class LaundryBooking extends Component
 {
     public int $step = 1;

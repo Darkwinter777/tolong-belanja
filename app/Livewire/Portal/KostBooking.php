@@ -11,7 +11,7 @@ use Modules\Kost\Models\KontrakSewa;
 use Modules\Kost\Models\Pembayaran;
 use Modules\Kost\Models\Penghuni;
 
-#[Layout('portal.layouts.app', ['showNav' => false])]
+#[Layout('portal.layouts.app', ['showNav' => false, 'narrow' => true])]
 class KostBooking extends Component
 {
     public int $step = 1;
