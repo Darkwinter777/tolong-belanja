@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Middleware\SetPortalSessionCookie;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -16,13 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
         // so Laravel generates https:// URLs when TLS is terminated upstream.
         $middleware->trustProxies(at: '*');
 
-        $middleware->prependToGroup('web', SetPortalSessionCookie::class);
-
-        $middleware->redirectGuestsTo(function ($request) {
-            return $request->is('portal*')
-                ? route('portal.login')
-                : route('filament.admin.auth.login');
-        });
+        $middleware->redirectGuestsTo(fn () => route('portal.login'));
 
         $middleware->redirectUsersTo(fn () => route('portal.home'));
     })

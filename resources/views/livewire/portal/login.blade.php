@@ -12,18 +12,17 @@
 
         <form wire:submit="login" class="mt-8 space-y-5">
             <div>
-                <label class="mb-2 block text-xs font-bold text-text-secondary">No. HP</label>
+                <label class="mb-2 block text-xs font-bold text-text-secondary">No. HP atau Email</label>
                 <div class="flex h-14 items-center rounded-2xl border-[1.5px] border-border bg-field px-4 focus-within:border-brand">
-                    <span class="text-sm font-semibold text-ink">+62</span>
-                    <span class="mx-3 h-[22px] w-px bg-[#D8E2E1]"></span>
                     <input
-                        type="tel"
-                        wire:model="phone"
-                        inputmode="numeric"
+                        type="text"
+                        wire:model="identifier"
+                        autocomplete="username"
+                        autocapitalize="none"
                         class="h-full flex-1 border-0 bg-transparent p-0 text-sm text-ink placeholder:text-text-faint focus:outline-none focus:ring-0"
                     >
                 </div>
-                @error('phone') <p class="mt-1.5 text-xs text-laundry-deep">{{ $message }}</p> @enderror
+                @error('identifier') <p class="mt-1.5 text-xs text-laundry-deep">{{ $message }}</p> @enderror
             </div>
 
             <div x-data="{ show: false }">
